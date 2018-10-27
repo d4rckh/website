@@ -7,9 +7,12 @@ app.use(jeky({
     markdownFolder: __dirname + '/_pages',
     globalData: {
         sidebar: require('fs').readFileSync(__dirname + '/_partials/sidebar.html').toString(),
-        header: require('fs').readFileSync(__dirname + '/_partials/header.html').toString()
+        header: require('fs').readFileSync(__dirname + '/_partials/header.html').toString(),
+        footer: require('fs').readFileSync(__dirname + '/_partials/footer.html').toString()
     }
 }))
+
+app.use(express.static(__dirname + '/public'))
 
 app.get('/', (req, res) => {
     res.renderMD('index.md', {

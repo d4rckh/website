@@ -26,4 +26,4 @@ app.get('/projects', (req, res) => {
     })
 })
 
-app.listen(3030)
+app.listen(process.env.PORT || 3030)
